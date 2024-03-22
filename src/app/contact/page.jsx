@@ -14,7 +14,7 @@ const ContactPage = () => {
     e.preventDefault();
     setError(false);
     setSuccess(false);
-
+    console.log("form:",form.current);
     emailjs
       .sendForm(
         process.env.NEXT_PUBLIC_SERVICE_ID,
@@ -40,10 +40,10 @@ const ContactPage = () => {
       animate={{ y: "0%" }}
       transition={{ duration: 1 }}
     >
-      <div className="h-full flex flex-col lg:flex-row px-4 sm:px-8 md:px-12 lg:px-20 xl:px-48">
+      <div className="h-1/8 flex flex-col lg:flex-row px-4 sm:px-8 md:px-12 lg:px-20 xl:px-48">
         {/* TEXT CONTAINER */}
-        <div className="h-1/2 lg:h-full lg:w-1/2 flex items-center justify-center text-6xl">
-          <div>
+        <div className="h-1/2 lg:h-full lg:w-1/2 flex items-center justify-center text-6xl ">
+          <div className="py-40">
             {text.split("").map((letter, index) => (
               <motion.span
                 key={index}
@@ -65,20 +65,35 @@ const ContactPage = () => {
         <form
           onSubmit={sendEmail}
           ref={form}
-          className="h-1/2 lg:h-full lg:w-1/2 bg-red-50 rounded-xl text-xl flex flex-col gap-8 justify-center p-24"
+          className="h-1/2 lg:h-full lg:w-1/2 bg-red-50 rounded-xl text-xl flex flex-col gap-4 justify-center p-24"
         >
-          <span>Dear Sun Dev,</span>
-          <textarea
-            rows={6}
-            className="bg-transparent border-b-2 border-b-black outline-none resize-none text-gray-600 p-4"
-            name="user_message"
-          />
-          <span>My mail address is:</span>
+          <span>From:</span>
           <input
+            className="bg-transparent border-b-2 border-b-black outline-none resize-none text-gray-600 p-1 "
             name="user_email"
+          />
+          <span>To:</span>
+          <text
+            value="raviraj14y@gmail.com"
+            className="bg-transparent border-b-2 border-b-black outline-none resize-none text-gray-600 p-1"
+            name="user_message"
+          >raviraj14y@gmail.com</text>
+          <span>Subject:</span>
+          <input
+            name="user_subject"
             type="text"
             className="bg-transparent border-b-2 border-b-black outline-none"
           />
+          <div className="grid gap-2">
+          <span className="mb-2">Hi Ravi,</span>
+          <textarea
+            rows={6}
+            className=" bg-transparent border-b-2 border-b-black outline-none resize-none text-gray-600 py-1 px-1"
+            name="user_message"
+          ></textarea>
+          </div>
+          
+          
           <span>Regards</span>
           <button className="bg-purple-200 rounded font-semibold text-gray-600 p-4">
             Send

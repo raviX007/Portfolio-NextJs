@@ -3,40 +3,42 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { useRef } from "react";
+import styles from '../styles.module.css';
 
 const items = [
+  // {
+  //   id: 1,
+  //   color: "from-red-300 to-blue-300",
+  //   title: "AI chat chrome extension",
+  //   desc: "This is a chrome extension developed using Plasmo which provides us the functionalities of ChatGpt like AI chat services by using HuggingFace API in NextJS backend. The user can input their query in the extension and the query will be sent to backend where its response is generated using hugging face API call. After that the response is sent back to user and it is displayed in the extension",
+  //   img: "https://images.pexels.com/photos/18073372/pexels-photo-18073372/free-photo-of-young-man-sitting-in-a-car-on-a-night-street.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load",
+   
+  // },
   {
     id: 1,
-    color: "from-red-300 to-blue-300",
-    title: "AI chat chrome extension",
-    desc: "This is a chrome extension developed using Plasmo which provides us the functionalities of ChatGpt like AI chat services by using HuggingFace API in NextJS backend. The user can input their query in the extension and the query will be sent to backend where its response is generated using hugging face API call. After that the response is sent back to user and it is displayed in the extension",
-    img: "https://images.pexels.com/photos/18073372/pexels-photo-18073372/free-photo-of-young-man-sitting-in-a-car-on-a-night-street.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load",
-    link: "https://lama.dev",
-  },
-  {
-    id: 2,
     color: "from-blue-300 to-violet-300",
     title: "User Management Application",
     desc: "This is Web Application developed using NextJs for developing UI and NodeJs is used for Backend along with MongoDB. It helps us to add , edit and delete user information .It also has a feature of selection of multiple rows and sending them over mail in a tabular form",
-    img: "https://images.pexels.com/photos/18023772/pexels-photo-18023772/free-photo-of-close-up-of-a-person-holding-a-wristwatch.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load",
-    link: "https://lama.dev",
+    img: "/userM.png",
+    link: "https://user-management-client.netlify.app/"
   },
   {
-    id: 3,
+    id: 2,
     color: "from-violet-300 to-purple-300",
-    title: "Telegram Weather Bot",
-    desc: "This is a telegram bot developed using Nest JS, which is a node JS wrapper framework. Given a city name as input , the bot displays the temperature of that city",    
-    img: "https://images.pexels.com/photos/6894528/pexels-photo-6894528.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load",
-    link: "https://lama.dev",
+    title: "Employee Management System",
+    desc: "This is a simple web based application developed using React.js and Node.js that maintains user information in a table and allows them to perform actions like create, update and delete.",    
+    img: "/empM.png",
+    link:"https://65fc7be33365df5cbf4aec4b--tiny-baklava-07327d.netlify.app/"
+   
   },
-  {
-    id: 4,
-    color: "from-purple-300 to-red-300",
-    title: "Online Music App",
-    desc: "This project is a basic clone of the music playing application Spotify which gives us some features such as playing songs, moving next or previous, etc",
-    img: "https://images.pexels.com/photos/18540208/pexels-photo-18540208/free-photo-of-wood-landscape-water-hill.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-    link: "https://lama.dev",
-  },
+  // {
+  //   id: 4,
+  //   color: "from-purple-300 to-red-300",
+  //   title: "Online Music App",
+  //   desc: "This project is a basic clone of the music playing application Spotify which gives us some features such as playing songs, moving next or previous, etc",
+  //   img: "https://images.pexels.com/photos/18540208/pexels-photo-18540208/free-photo-of-wood-landscape-water-hill.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+  //   link: "",
+  // },
 ];
 
 const PortfolioPage = () => {
@@ -58,18 +60,19 @@ const PortfolioPage = () => {
         </div>
         <div className="sticky top-0 flex h-screen gap-4 items-center overflow-hidden">
           <motion.div style={{ x }} className="flex">
-            <div className="h-screen w-screen flex items-center justify-center bg-gradient-to-r from-purple-300 to-red-300" />
+            {/* <div className="h-screen w-screen flex items-center justify-center bg-gradient-to-r from-purple-300 to-red-300" /> */}
             {items.map((item) => (
               <div
                 className={`h-screen w-screen flex items-center justify-center bg-gradient-to-r ${item.color}`}
                 key={item.id}
               >
                 <div className="flex flex-col gap-8 text-white">
-                  <h1 className="text-xl font-bold md:text-4xl lg:text-6xl xl:text-8xl">
+                  <h1 className="text-l font-bold md:text-2xl lg:text-4xl xl:text-6xl">
                     {item.title}
                   </h1>
-                  <div className="relative w-80 h-56 md:w-96 md:h-64 lg:w-[500px] lg:h-[350px] xl:w-[600px] xl:h-[420px]">
-                    <Image src={item.img} alt="" fill />
+                  <div className="relative w-80 h-56 md:w-96 md:h-56 lg:w-[400px] lg:h-[350px] xl:w-[600px] xl:h-[220px]">
+                  <Image src={item.img} alt="Employee Management System" layout="fill" objectFit="contain" className="rounded-lg" />
+
                   </div>
                   <p className="w-80 md:w96 lg:w-[500px] lg:text-lg xl:w-[600px]">
                     {item.desc}
@@ -83,7 +86,7 @@ const PortfolioPage = () => {
           </motion.div>
         </div>
       </div>
-      <div className="w-screen h-screen flex flex-col gap-16 items-center justify-center text-center">
+      <div className="w-screen h-screen flex flex-col gap-4 items-center justify-center text-center">
         <h1 className="text-8xl">Do you have a project?</h1>
         <div className="relative">
           <motion.svg
